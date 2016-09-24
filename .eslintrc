@@ -1,0 +1,15 @@
+---
+extends: eslint-config-airbnb
+
+plugins:
+  - react
+
+globals:
+  document: false
+
+parserOptions:
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+
+rules:
+  import/newline-after-import: off

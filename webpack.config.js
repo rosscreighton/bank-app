@@ -4,24 +4,29 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ROOT_PATH = __dirname;
 
 const config = {
-  entry: './src/entryPoint.js',
+  entry: './src/entryPoint.jsx',
   module: {
     loaders: [
       {
-        test: /\.js?$/, include: path.join(ROOT_PATH, 'src'), loader: 'babel-loader'
-      }
+        test: /\.jsx?$/,
+        include: path.join(ROOT_PATH, 'src'),
+        loader: 'babel-loader!eslint',
+      },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: ROOT_PATH + '/src/index.html',
       filename: 'index.html',
-      inject: 'body'
-    })
+      inject: 'body',
+    }),
   ],
   output: {
-    filename: "bundle.js",
-    path: path.join(ROOT_PATH, 'dist')
+    filename: 'bundle.js',
+    path: path.join(ROOT_PATH, 'dist'),
   },
 };
 
