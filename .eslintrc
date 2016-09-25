@@ -6,6 +6,7 @@ plugins:
 
 globals:
   document: false
+  window: false
 
 parserOptions:
   ecmaFeatures:
