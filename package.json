@@ -52,10 +52,10 @@
       "babel-register"
     ],
     "files": [
-      "src/**/**/*.spec.{js,jsx}"
+      "src/**/*.spec.{js}"
     ],
     "source": [
-      "src/**/**/*.{js,jsx}"
+      "src/**/*.{js}"
     ],
     "babel": "inherit"
   }
