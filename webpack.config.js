@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ROOT_PATH = __dirname;
@@ -23,6 +24,7 @@ const config = {
       filename: 'index.html',
       inject: 'body',
     }),
+    new webpack.NoErrorsPlugin()
   ],
   output: {
     filename: 'bundle.js',
