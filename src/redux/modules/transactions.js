@@ -9,7 +9,7 @@ const createWithdrawl = (parsedAmount, description, prevTransaction) => ({
     amount: parsedAmount * -1,
     description,
     date: Date.now(),
-    endBalance: prevTransaction ? prevTransaction.endBalance - parsedAmount : parsedAmount,
+    endBalance: prevTransaction ? prevTransaction.endBalance - parsedAmount : parsedAmount * -1,
   },
 });
 
