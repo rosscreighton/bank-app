@@ -24,7 +24,7 @@ const config = {
       filename: 'index.html',
       inject: 'body',
     }),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
   ],
   output: {
     filename: 'bundle.js',
