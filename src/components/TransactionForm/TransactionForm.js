@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {
   Button,
+  Divider,
   Form,
   Header,
   Input,
@@ -17,7 +18,8 @@ export function TransactionForm({ createTransaction }) {
 
   return (
     <Segment>
-      <Header>Create a transaction</Header>
+      <Header textAlign="center">Create a transaction</Header>
+      <Divider hidden />
       <Form
         onSubmit={(e, data) => {
           e.preventDefault();
@@ -47,6 +49,7 @@ export function TransactionForm({ createTransaction }) {
             placeholder="Description"
           />
         </Form.Group>
+        <Divider hidden />
         <Button
           type="submit"
           primary

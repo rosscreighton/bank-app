@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {
   Container,
+  Divider,
   Icon,
   Menu,
   Table } from 'stardust';
@@ -16,7 +17,7 @@ export function App({ transactions }) {
   });
 
   const tableData = transactions.map(transaction => ({
-    date: moment(transaction.date).format('dddd, MMMM Do YYYY, h:mm a'),
+    date: moment(transaction.date).format('dddd, MMMM Do, YYYY h:mm a'),
     description: transaction.description,
     amount: currencyFormatter.format(transaction.amount),
     endBalance: currencyFormatter.format(transaction.endBalance),
@@ -30,7 +31,9 @@ export function App({ transactions }) {
           Banking App
         </Menu.Item>
       </Menu>
+      <Divider hidden />
       <TransactionForm />
+      <Divider hidden />
       <Table data={tableData}>
         <Table.Column dataKey="date" />
         <Table.Column dataKey="description" />
