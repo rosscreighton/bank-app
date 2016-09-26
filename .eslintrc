@@ -13,7 +13,8 @@ parserOptions:
     experimentalObjectRestSpread: true
 
 rules:
-  import/newline-after-import: off
   arrow-parens: off
-  react/jsx-filename-extension: off
+  import/newline-after-import: off
+  import/no-named-as-default: off
   no-shadow: off
+  react/jsx-filename-extension: off
