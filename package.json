@@ -48,13 +48,15 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
+    "jsdom": "^9.5.0",
     "react-addons-test-utils": "^15.3.2",
     "sinon": "^1.17.6",
     "webpack-dev-server": "^2.1.0-beta.5"
   },
   "ava": {
     "require": [
-      "babel-register"
+      "babel-register",
+      "./testBootstrapper.js"
     ],
     "files": [
       "src/**/*.spec.js"
