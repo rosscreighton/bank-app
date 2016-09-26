@@ -1,10 +1,14 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Container, Header, Icon, Table } from 'stardust';
+import {
+  Container,
+  Icon,
+  Menu,
+  Table } from 'stardust';
 import moment from 'moment';
-import { createTransaction } from '../../redux/modules/transactions';
+import TransactionForm from '../TransactionForm';
 
-export function App({ transactions, createTransaction }) {
+export function App({ transactions }) {
   const currencyFormatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -20,33 +24,27 @@ export function App({ transactions, createTransaction }) {
 
   return (
     <Container>
-      <Header block>
-        <Icon name="money" />
-        Banking App
-      </Header>
-      <button
-        onClick={() => createTransaction('test transaction', '7.75')}
-      >
-        create
-      </button>
+      <Menu attached="top">
+        <Menu.Item header>
+          <Icon name="money" />
+          Banking App
+        </Menu.Item>
+      </Menu>
+      <TransactionForm />
       <Table data={tableData}>
         <Table.Column dataKey="date" />
         <Table.Column dataKey="description" />
         <Table.Column dataKey="amount" />
         <Table.Column dataKey="endBalance" headerRenderer={() => 'Balance'} />
       </Table>
-
     </Container>
   );
 }
 
 App.propTypes = {
   transactions: PropTypes.arrayOf(PropTypes.object),
-  createTransaction: PropTypes.func,
 };
 
 export default connect(state => ({
   transactions: state.transactions,
-}), {
-  createTransaction,
-})(App);
+}))(App);
