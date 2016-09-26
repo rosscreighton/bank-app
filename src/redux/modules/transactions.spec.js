@@ -1,12 +1,17 @@
 import test from 'ava';
 import { spy, stub } from 'sinon';
-import reducer, { CREATE_TRANSACTION, createTransaction } from './transactions';
+import reducer, { CREATE_DEPOSIT, CREATE_WITHDRAWL, DEPOSIT, createTransaction } from './transactions';
 
 test('the createTransaction action creator dispatches the correct action', t => {
   const dispatch = spy();
   const getState = stub().returns({ transactions: [{ endBalance: 1.00 }] });
 
-  createTransaction('test transaction', '7.75')(dispatch, getState);
+  createTransaction({
+    type: DEPOSIT,
+    amount: '7.75',
+    description: 'test transaction',
+  })(dispatch, getState);
+
   const createdAction = dispatch.getCall(0).args[0];
 
   t.is(createdAction.transaction.amount, 7.75);
@@ -29,7 +34,15 @@ const reducerTestCases = [
   {
     state: [],
     action: {
-      type: CREATE_TRANSACTION,
+      type: CREATE_DEPOSIT,
+      transaction: testTransaction,
+    },
+    result: [testTransaction],
+  },
+  {
+    state: [],
+    action: {
+      type: CREATE_WITHDRAWL,
       transaction: testTransaction,
     },
     result: [testTransaction],
