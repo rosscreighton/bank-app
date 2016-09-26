@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Container, Table } from 'stardust';
+import { Container, Header, Icon, Table } from 'stardust';
 import moment from 'moment';
 import { createTransaction } from '../../redux/modules/transactions';
 
@@ -20,6 +20,10 @@ export function App({ transactions, createTransaction }) {
 
   return (
     <Container>
+      <Header block>
+        <Icon name="money" />
+        Banking App
+      </Header>
       <button
         onClick={() => createTransaction('test transaction', '7.75')}
       >
