@@ -2,7 +2,8 @@ export const CREATE_TRANSACTION = 'bank-app/transactions/create-transaction';
 
 export const createTransaction = (description, _amount) => (dispatch, getState) => {
   const amount = Number(_amount);
-  const previousTransaction = getState().transactions.slice().pop();
+  const previousTransaction = getState().transactions.slice().shift();
+  const endBalance = previousTransaction ? previousTransaction.endBalance + amount : amount;
 
   dispatch({
     type: CREATE_TRANSACTION,
@@ -10,7 +11,7 @@ export const createTransaction = (description, _amount) => (dispatch, getState) 
       amount,
       description,
       date: Date.now(),
-      endBalance: previousTransaction ? previousTransaction.amount + amount : amount,
+      endBalance,
     },
   });
 };
@@ -18,7 +19,7 @@ export const createTransaction = (description, _amount) => (dispatch, getState) 
 export default function reducer(state = [], action) {
   switch (action.type) {
     case CREATE_TRANSACTION:
-      return [...state, action.transaction];
+      return [action.transaction, ...state];
     default:
       return state;
   }

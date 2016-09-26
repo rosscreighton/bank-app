@@ -4,11 +4,13 @@ import reducer, { CREATE_TRANSACTION, createTransaction } from './transactions';
 
 test('the createTransaction action creator dispatches the correct action', t => {
   const dispatch = spy();
-  const getState = stub().returns({ transactions: [] });
+  const getState = stub().returns({ transactions: [{ endBalance: 1.00 }] });
 
   createTransaction('test transaction', '7.75')(dispatch, getState);
+  const createdAction = dispatch.getCall(0).args[0];
 
-  t.is(dispatch.getCall(0).args[0].transaction.amount, 7.75);
+  t.is(createdAction.transaction.amount, 7.75);
+  t.is(createdAction.transaction.endBalance, 8.75);
 });
 
 const testTransaction = {
