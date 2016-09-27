@@ -13,6 +13,7 @@ Howdy. Thanks for taking a few minutes to read through my code. This is a simple
 2. `npm i`
 3. `npm run develop`
 4. Run unit tests in watch mode: `npm test:watch`
+5. Navigate to localhost:8080
 
 
 ### Testing
@@ -26,9 +27,10 @@ To run unit tests:
   - submitForm action creator needs a unit test.
   - Make use of test helpers to standardize how things are tested and tidy up test files.
 - For production deployment and performance:
+  - Semantic UI CSS is currently included via CDN. Should be bundled with the app so only necessary css can be included. 
   - Moment.js is not justifiable as a dependency. Should be removed in favor of simple helper function.
   - Legacy browser compatibility could be improved (i.e. ES5 shims)
-  - Semantic UI CSS is currently included via CDN. Should be bundled with the app so only necessary css can be included. 
+  - Cross-browswer compatibility could be improved (i.e. vendor prefixing via PostCSS)
 - Design
   - Transactions table should be paginated for large datasets.
   - Add icons in deposit/withdrawl dropdown for a visual cue.
@@ -37,6 +39,8 @@ To run unit tests:
 - For developer experience:
   - Source maps for easier debugging
   - Hot module replacement
+  - Webpack aliases for common directories
+
 
 
 
