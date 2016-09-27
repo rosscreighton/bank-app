@@ -36,6 +36,7 @@ To run unit tests:
   - Add icons in deposit/withdrawl dropdown for a visual cue.
   - The description field should have a max length.
   - Negative space in "Create a transaction" needs adjustment.
+  - Should show messaging to user when there is a validation error.
 - For developer experience:
   - Source maps for easier debugging
   - Hot module replacement
