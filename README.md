@@ -15,7 +15,6 @@ Howdy. Thanks for taking a few minutes to read through my code. This is a simple
 4. Run unit tests in watch mode: `npm test:watch`
 5. Navigate to localhost:8080
 
-
 ### Testing
 To run unit tests:
 `npm test`
@@ -31,6 +30,7 @@ To run unit tests:
   - Moment.js is not justifiable as a dependency. Should be removed in favor of simple helper function.
   - Legacy browser compatibility could be improved (i.e. ES5 shims)
   - Cross-browswer compatibility could be improved (i.e. vendor prefixing via PostCSS)
+  - Add npm script and webpack config for building static production assets
 - Design
   - Transactions table should be paginated for large datasets.
   - Add icons in deposit/withdrawl dropdown for a visual cue.
