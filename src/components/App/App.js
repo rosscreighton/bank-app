@@ -24,23 +24,27 @@ export function App({ transactions }) {
   }));
 
   return (
-    <Container>
-      <Menu attached="top">
-        <Menu.Item header>
-          <Icon name="money" />
-          Banking App
-        </Menu.Item>
+    <div>
+      <Menu attached>
+        <Container>
+          <Menu.Item header>
+            <Icon name="money" />
+            Banking App
+          </Menu.Item>
+        </Container>
       </Menu>
-      <Divider hidden />
-      <TransactionForm />
-      <Divider hidden />
-      <Table data={tableData}>
-        <Table.Column dataKey="date" />
-        <Table.Column dataKey="description" />
-        <Table.Column dataKey="amount" />
-        <Table.Column dataKey="endBalance" headerRenderer={() => 'Balance'} />
-      </Table>
-    </Container>
+      <Container>
+        <Divider hidden />
+        <TransactionForm />
+        <Divider hidden />
+        <Table data={tableData}>
+          <Table.Column dataKey="date" />
+          <Table.Column dataKey="description" />
+          <Table.Column dataKey="amount" />
+          <Table.Column dataKey="endBalance" headerRenderer={() => 'Balance'} />
+        </Table>
+      </Container>
+    </div>
   );
 }
 
