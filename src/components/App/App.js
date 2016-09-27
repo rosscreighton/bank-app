@@ -4,7 +4,7 @@ import { Divider, Table } from 'stardust';
 import moment from 'moment';
 import Page from '../Page';
 import TransactionForm from '../TransactionForm';
-import currencyFormatter from '../../lib/utilities';
+import { currencyFormatter } from '../../lib/utilities';
 
 function App({ transactions }) {
   return (
