@@ -2,9 +2,9 @@
 Howdy. Thanks for taking a few minutes to read through my code. This is a simple banking application built with React, Redux, & Semantic UI.
 
 ### Overview
-- Used `stardust`, the offical Semantic-UI-React integration, in order to simplify component development and avoid bringing in jQuery as a dependency.
+- I used `stardust`, the offical Semantic-UI-React integration, in order to simplify component development and avoid bringing in jQuery as a dependency.
 - Redux reducers, actionTypes, and actions are organized according the the [Redux Ducks Proposal](https://github.com/erikras/ducks-modular-redux).
-- All React component related files (stylesheets, tests, and the component itself) are organized into component directories under `src/components` which provides a terse and easily discoverable file structure.
+- All React component related files (stylesheets, tests, and the component itself) are organized into component directories under `src/components`, which provides a terse and easily discoverable file structure.
 - Stateless, functional, component definitions are favored as they use less memory and provide rendering performance gains in some cases.
 
 
