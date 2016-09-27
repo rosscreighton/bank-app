@@ -17,4 +17,5 @@ rules:
   import/newline-after-import: off
   import/no-named-as-default: off
   no-shadow: off
+  react/forbid-prop-types: off
   react/jsx-filename-extension: off

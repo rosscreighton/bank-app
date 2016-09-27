@@ -23,8 +23,8 @@ const createDeposit = (parsedAmount, description, prevTransaction) => ({
   },
 });
 
-export const createTransaction = args => (dispatch, getState) => {
-  const { type, amount, description } = args;
+export const createTransaction = serializedForm => (dispatch, getState) => {
+  const { type, amount, description } = serializedForm;
   const parsedAmount = Number(amount);
   const prevTransaction = getState().transactions.slice().shift();
 

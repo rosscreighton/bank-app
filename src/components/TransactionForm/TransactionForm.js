@@ -5,12 +5,11 @@ import {
   Divider,
   Form,
   Header,
-  Input,
-  Segment,
-  Select } from 'stardust';
-import { createTransaction, DEPOSIT, WITHDRAWL } from '../../redux/modules/transactions';
+  Segment } from 'stardust';
+import { DEPOSIT, WITHDRAWL } from '../../redux/modules/transactions';
+import { setFieldValue, submitForm } from '../../redux/modules/TransactionForm';
 
-export function TransactionForm({ createTransaction }) {
+export function TransactionForm({ errors, serializedForm, setFieldValue, submitForm }) {
   const selectOptions = [
     { text: 'Deposit', value: DEPOSIT },
     { text: 'Withdrawl', value: WITHDRAWL },
@@ -21,32 +20,38 @@ export function TransactionForm({ createTransaction }) {
       <Header textAlign="center">Create a transaction</Header>
       <Divider hidden />
       <Form
-        onSubmit={(e, data) => {
+        onSubmit={(e, formData) => {
           e.preventDefault();
-          createTransaction(data);
+          submitForm(formData);
         }}
       >
         <Form.Group widths="equal">
-          <Form.Field
-            required
+          <Form.Select
             name="type"
-            control={Select}
-            label="Deposit/Withdrawl"
-            options={selectOptions}
+            label="Deposit/WITHDRAWL"
             placeholder="Deposit/Withdrawl"
+            error={errors.type}
+            value={serializedForm.type}
+            options={selectOptions}
+            onChange={(e, value) => setFieldValue('type', value)}
           />
-          <Form.Field
-            required
+          <Form.Input
             name="amount"
-            control={Input}
+            type="number"
             label="Amount"
             placeholder="$0.00"
+            error={errors.amount}
+            value={serializedForm.amount}
+            onChange={e => setFieldValue('amount', e.target.value)}
           />
-          <Form.Field
+          <Form.Input
             name="description"
-            control={Input}
             label="Description"
             placeholder="Description"
+            type="text"
+            error={errors.description}
+            value={serializedForm.description}
+            onChange={e => setFieldValue('description', e.target.value)}
           />
         </Form.Group>
         <Divider hidden />
@@ -62,9 +67,16 @@ export function TransactionForm({ createTransaction }) {
 }
 
 TransactionForm.propTypes = {
-  createTransaction: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  serializedForm: PropTypes.object.isRequired,
+  setFieldValue: PropTypes.func.isRequired,
+  submitForm: PropTypes.func.isRequired,
 };
 
-export default connect(null, {
-  createTransaction,
+export default connect(state => ({
+  errors: state.TransactionForm.errors,
+  serializedForm: state.TransactionForm.serializedForm,
+}), {
+  setFieldValue,
+  submitForm,
 })(TransactionForm);
