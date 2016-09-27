@@ -4,7 +4,8 @@
   "description": "a simple banking application built with React + Redux",
   "main": "src/index.js",
   "scripts": {
-    "test": "ava --verbose --watch",
+    "test": "ava --verbose",
+    "test:watch": "npm test -- --watch",
     "develop": "webpack-dev-server --content-base ./dist"
   },
   "repository": {
