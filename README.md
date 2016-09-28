@@ -22,9 +22,10 @@ To run unit tests:
 ### Proposed Improvements
 - Test coverage:
   - Write functional/integration tests
-  -  submitForm action creator needs a unit test.
+  - The submitForm action creator needs a unit test.
 - Code quality:
   - Make use of test helpers to standardize how things are tested and tidy up test files.
+  - Make use of `redux-form` or similar to simplify code for forms with controlled state.
 - Production deployment and performance:
   - Semantic UI CSS is currently included via CDN. Should instead be bundled with the app so webpack can include only the necessary css for the browser to download. 
   - For how it is used here, Moment.js is not justifiable as a dependency. It should be removed in favor of simple helper function.
