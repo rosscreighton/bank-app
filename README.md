@@ -28,7 +28,7 @@ To run unit tests:
   - Make use of `redux-form` or similar to simplify code for forms with controlled state.
 - Production deployment and performance:
   - Semantic UI CSS is currently included via CDN. Should instead be bundled with the app so webpack can include only the necessary css for the browser to download. 
-  - For how it is used here, Moment.js is not justifiable as a dependency. It should be removed in favor of simple helper function.
+  - For how it is used here, Moment.js is not justifiable as a dependency. It should be removed in favor of a simple helper function.
   - Add an ES5 shim for improved legacy browser compatibility.
   - Add vendor prefixing via PostCSS to improve cross-browswer compatibility.
   - Add npm script and webpack config for building static production assets.
