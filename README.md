@@ -1,5 +1,5 @@
 ## A Banking App
-Howdy. Thanks for taking a few minutes to read through my code. This is a simple banking application built with React, Redux, & Semantic UI.
+Howdy. Thanks for taking a few minutes to read through my code. This is a simple simulated banking application built with React, Redux, & Semantic UI.
 
 ### Overview
 - I used `stardust`, the offical Semantic-UI-React integration, in order to simplify component development and avoid bringing in jQuery as a dependency.
